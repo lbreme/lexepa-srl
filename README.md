@@ -107,3 +107,6 @@ Good job!
 </pre>
 
 <p>The callback functions implemented by the Lexepa_Srl_Abstract class are contained and documented in the interface file <a href="https://github.com/lbreme/lexepa-srl/blob/main/src/class-lexepa-srl-interface.php">class-lexepa-srl-interface.php</a></p>
+
+<p>The Lexepa_Srl library was created by taking as reference the following document that specifies how an object is serialized in PHP:</p>
+<p><a href="https://www.phpinternalsbook.com/php5/classes_objects/serialization.html">https://www.phpinternalsbook.com/php5/classes_objects/serialization.html</a></p>
