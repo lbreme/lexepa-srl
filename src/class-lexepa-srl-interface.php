@@ -5,7 +5,7 @@ namespace Breme\Lexepa\srl;
 /**
  * Lexepa Interface.
  *
- * Functions that must be defined by Lexepa_Srl class.
+ * Functions that must be defined by Lexepa_Srl_Abstract class.
  *
  */
 interface Lexepa_Srl_Interface

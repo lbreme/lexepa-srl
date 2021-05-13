@@ -4,8 +4,6 @@ namespace Breme\Lexepa\srl;
 
 use Breme\Lexepa\srl\Lexepa_Srl_Interface;
 
-//require_once( 'class-lexepa-srl-interface.php' );
-
 /**
  * Lexepa Abstract Class.
  *

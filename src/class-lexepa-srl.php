@@ -22,7 +22,7 @@ define('T_SRL_DECIMAL_VALUE', 16);
 define('T_SRL_STRING_VALUE',  17);
 
 /**
- * Lexepa Class.
+ * Lexepa_Srl Class.
  *
  * Class for lexing and parsing a serialized string in PHP.
  *
