@@ -106,4 +106,4 @@ Null value found
 Good job!
 </pre>
 
-<p>The callback functions implemented by the Lexepa_Srl_Abstract class are contained and documented in the interface file <a href="https://github.com/lbreme/lexepa-srl/src/class-lexepa-srl-interface.php">class-lexepa-srl-interface.php</a></p>
+<p>The callback functions implemented by the Lexepa_Srl_Abstract class are contained and documented in the interface file <a href="https://github.com/lbreme/lexepa-srl/blob/main/src/class-lexepa-srl-interface.php">class-lexepa-srl-interface.php</a></p>
