@@ -9,11 +9,11 @@ Library for lexing and parsing a serialized string in PHP.
 <h1>How does it work?</h1>
 <p>The Lexepa-Srl library analyzes any text string coming from the result of a serialization in PHP. During the analysis a series of callback functions are called to which are passed as arguments the elements that constitute the serialized string.</p>
 
-<p>We clarify with an example, which is contained in the file class-example-srl.php, which to make it work is to copy in the root of your project:</p>
+<p>We clarify with an example, which is contained in the file <a href="https://github.com/lbreme/lexepa-srl/blob/main/class-example-srl.php">class-example-srl.php</a>, which to make it work is to copy in the root of your project:</p>
 
 <pre>
-/* 
-We create a class derived from the Lexepa_Srl_Abstract class, which implements all the 
+/*
+We create a class derived from the Lexepa_Srl_Abstract class, which implements all the
 callback functions that will be called by the analysis of the serialized string
 */
 class Example_Srl extends Lexepa_Srl_Abstract
@@ -71,7 +71,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 $example_srl = new Example_Srl();
 
 /*
-We instantiate the Lexepa-Srl library class, passing as arguments the $example_srl object 
+We instantiate the Lexepa-Srl library class, passing as arguments the $example_srl object
 containing the callback functions and the serialized string
 */
 $lexepa_srl  = new Lexepa_Srl( $example_srl, $myArraySerialized );
