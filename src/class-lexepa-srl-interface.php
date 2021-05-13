@@ -1,6 +1,6 @@
 <?php
 
-namespace Breme\Lexepa\srl;
+namespace Breme\Lexepa\Srl;
 
 /**
  * Lexepa Interface.

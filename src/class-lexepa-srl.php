@@ -1,6 +1,6 @@
 <?php
 
-namespace Breme\Lexepa\srl;
+namespace Breme\Lexepa\Srl;
 
 define('T_SRL_NULL',          0);
 define('T_SRL_BOOL',          1);

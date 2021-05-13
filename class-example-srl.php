@@ -2,8 +2,8 @@
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-use Breme\Lexepa\srl\Lexepa_Srl_Abstract;
-use Breme\Lexepa\srl\Lexepa_Srl;
+use Breme\Lexepa\Srl\Lexepa_Srl_Abstract;
+use Breme\Lexepa\Srl\Lexepa_Srl;
 
 $my_array = array(
 	'key1' => 'This is my first value',

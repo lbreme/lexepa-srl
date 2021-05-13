@@ -1,8 +1,8 @@
 <?php
 
-namespace Breme\Lexepa\srl;
+namespace Breme\Lexepa\Srl;
 
-use Breme\Lexepa\srl\Lexepa_Srl_Interface;
+use Breme\Lexepa\Srl\Lexepa_Srl_Interface;
 
 /**
  * Lexepa Abstract Class.
