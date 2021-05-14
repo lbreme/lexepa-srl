@@ -84,7 +84,7 @@ $lexepa_srl->parse_srl();
 <p>The result of this example is as follows:</p>
 
 <pre>
-String serialized: a:5:{s:4:"key1";s:22:"This is my first value";s:4:"key2";s:23:"This is my second value";s:4:"key3";i:20;s:4:"key4";b:1;s:4:"key5";N;}
+Serialized string: a:5:{s:4:"key1";s:22:"This is my first value";s:4:"key2";s:23:"This is my second value";s:4:"key3";i:20;s:4:"key4";b:1;s:4:"key5";N;}
 Number of items of the array: 5
 String length: 4
 String value: key1
