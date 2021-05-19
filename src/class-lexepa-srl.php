@@ -22,7 +22,7 @@ define('T_SRL_DECIMAL_VALUE', 16);
 define('T_SRL_STRING_VALUE',  17);
 
 /**
- * Lexepa_Srl Class.
+ * Lexepa Class.
  *
  * Class for lexing and parsing a serialized string in PHP.
  *
@@ -317,7 +317,7 @@ class Lexepa_Srl
 						$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 					}
 				} else {
-					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 				}
 			// Boolean pattern: b:1; or b:0;
 			} else if ( T_SRL_BOOL === $this->tokens[ $this->idx ]['T'] ) {
@@ -333,19 +333,19 @@ class Lexepa_Srl
 										$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 									}
 								} else {
-									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 								}
 							} else {
 								$this->lexepa_srl->set_error( sprintf( _( 'It is expected the characters "0" or "1" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 							}
 						} else {
-							$this->lexepa_srl->set_error( sprintf( _( 'It is expected the characters "0" or "1" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+							$this->lexepa_srl->set_error( sprintf( _( 'It is expected the characters "0" or "1" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 						}
 					} else {
 						$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 					}
 				} else {
-					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 				}
 			// Integer pattern: i:42;
 			} else if ( T_SRL_INTEGER === $this->tokens[ $this->idx ]['T'] ) {
@@ -361,19 +361,19 @@ class Lexepa_Srl
 										$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 									}
 								} else {
-									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 								}
 							} else {
 								$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 							}
 						} else {
-							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 						}
 					} else {
 						$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 					}
 				} else {
-					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 				}
 			// Reference in an Array: R:2;
 			} else if ( T_SRL_REF_ARRAY === $this->tokens[ $this->idx ]['T'] ) {
@@ -389,19 +389,19 @@ class Lexepa_Srl
 										$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 									}
 								} else {
-									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 								}
 							} else {
 								$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 							}
 						} else {
-							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 						}
 					} else {
 						$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 					}
 				} else {
-					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 				}
 			// Reference in an Object: r:1;
 			} else if ( T_SRL_REF_OBJ === $this->tokens[ $this->idx ]['T'] ) {
@@ -417,13 +417,13 @@ class Lexepa_Srl
 										$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 									}
 								} else {
-									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 								}
 							} else {
 								$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 							}
 						} else {
-							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 						}
 					} else {
 
@@ -445,19 +445,19 @@ class Lexepa_Srl
 										$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 									}
 								} else {
-									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 								}
 							} else {
 								$this->lexepa_srl->set_error( sprintf( _( 'It is expected a decimal value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 							}
 						} else {
-							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a decimal value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a decimal value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 						}
 					} else {
 						$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 					}
 				} else {
-					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 				}
 			// String pattern: s:6:"foobar";
 			} else if ( T_SRL_STRING === $this->tokens[ $this->idx ]['T'] ) {
@@ -482,43 +482,43 @@ class Lexepa_Srl
 																		$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 																	}
 																} else {
-																	$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																	$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ";" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																}
 															} else {
 																$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 															}
 														} else {
-															$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+															$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 														}
 													} else {
 														$this->lexepa_srl->set_error( sprintf( _( 'It is expected a sring value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 													}
 												} else {
-													$this->lexepa_srl->set_error( sprintf( _( 'It is expected a sring value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+													$this->lexepa_srl->set_error( sprintf( _( 'It is expected a sring value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 												}
 											} else {
 												$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 											}
 										} else {
-											$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+											$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 										}
 									} else {
 										$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 									}
 								} else {
-									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 								}
 							} else {
 								$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 							}
 						} else {
-							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 						}
 					} else {
 						$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 					}
 				} else {
-					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 				}
 			// Array pattern: a:2:{...}
 			} else if ( T_SRL_ARRAY === $this->tokens[ $this->idx ]['T'] ) {
@@ -547,31 +547,31 @@ class Lexepa_Srl
 														}
 													}
 												} else {
-													$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "}" or another string to unserialize at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+													$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "}" or another string to unserialize at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 												}
 											} else {
 												$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "(" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 											}
 										} else {
-											$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "(" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+											$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "(" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 										}
 									} else {
 										$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 									}
 								} else {
-									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 								}
 							} else {
 								$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 							}
 						} else {
-							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 						}
 					} else {
 						$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 					}
 				} else {
-					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 				}
 			// Object pattern: O:4:"Test":3:{...}
 			} else if ( T_SRL_OBJECT === $this->tokens[ $this->idx ]['T'] ) {
@@ -614,67 +614,67 @@ class Lexepa_Srl
 																										}
 																									}
 																								} else {
-																									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "}" or another string to unserialize at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "}" or another string to unserialize at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																								}
 																							} else {
 																								$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "(" or another string to unserialize at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 																							}
 																						} else {
-																							$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "(" or another string to unserialize at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																							$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "(" or another string to unserialize at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																						}
 																					} else {
 																						$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 																					}
 																				} else {
-																					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																				}
 																			} else {
 																				$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 																			}
 																		} else {
-																			$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																			$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																		}
 																	} else {
 																		$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 																	}
 																} else {
-																	$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																	$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																}
 															} else {
 																$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 															}
 														} else {
-															$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+															$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 														}
 													} else {
 														$this->lexepa_srl->set_error( sprintf( _( 'It is expected a string value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 													}
 												} else {
-													$this->lexepa_srl->set_error( sprintf( _( 'It is expected a string value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+													$this->lexepa_srl->set_error( sprintf( _( 'It is expected a string value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 												}
 											} else {
 												$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 											}
 										} else {
-											$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+											$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 										}
 									} else {
 										$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 									}
 								} else {
-									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 								}
 							} else {
 								$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 							}
 						} else {
-							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 						}
 					} else {
 						$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 					}
 				} else {
-					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 				}
 			// Custom Object pattern: C:5:"Test":6:{...}
 			} else if ( T_SRL_CUSTOM === $this->tokens[ $this->idx ]['T'] ) {
@@ -709,76 +709,76 @@ class Lexepa_Srl
 																										if ( isset( $this->tokens[ ++$this->idx ] ) && T_SRL_CLOSE_BRACKET === $this->tokens[ $this->idx ]['T'] ) {
 																											$parse_srl_string = true;
 																										} else {
-																											$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ")" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																											$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ")" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																										}
 																									} else {
 																										$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ")" or a string value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 																									}
 																								} else {
-																									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ")" or a string value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ")" or a string value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																								}
 																							} else {
 																								$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "(" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 																							}
 																						} else {
-																							$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "(" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																							$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character "(" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																						}
 																					} else {
 																						$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 																					}
 																				} else {
-																					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																				}
 																			} else {
 																				$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 																			}
 																		} else {
-																			$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																			$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																		}
 																	} else {
 																		$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 																	}
 																} else {
-																	$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+																	$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 																}
 															} else {
 																$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 															}
 														} else {
-															$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+															$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 														}
 													} else {
 														$this->lexepa_srl->set_error( sprintf( _( 'It is expected a string value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 													}
 												} else {
-													$this->lexepa_srl->set_error( sprintf( _( 'It is expected a string value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+													$this->lexepa_srl->set_error( sprintf( _( 'It is expected a string value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 												}
 											} else {
 												$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 											}
 										} else {
-											$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+											$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character " (double apex) at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 										}
 									} else {
 										$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 									}
 								} else {
-									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+									$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 								}
 							} else {
 								$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 							}
 						} else {
-							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+							$this->lexepa_srl->set_error( sprintf( _( 'It is expected a integer value at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 						}
 					} else {
 						$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 					}
 				} else {
-					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx ]['O'] + 1 ) );
+					$this->lexepa_srl->set_error( sprintf( _( 'It is expected the character ":" at offset %d' ), $this->tokens[ $this->idx - 1 ]['O'] + strlen( $this->tokens[ $this->idx - 1 ]['V'] ) ) );
 				}
 			} else {
-				$this->lexepa_srl->set_error( sprintf( _( 'Invalid character at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
+				$this->lexepa_srl->set_error( sprintf( _( 'One of the following characters "N", "b", "i", "R", "r", "d", "s", "a", "O", "C" was expected at offset %d' ), $this->tokens[ $this->idx ]['O'] ) );
 			}
 		} else {
 			$this->lexepa_srl->set_error( _( 'One of the following characters "N", "b", "i", "R", "r", "d", "s", "a", "O", "C" was expected at the beginning of the string' ) );
