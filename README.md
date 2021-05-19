@@ -25,7 +25,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 	 * @param int    $offset Initial offset.
 	 */
 	public function begin_parsing( $string, $offset ) {
-		echo 'String serialized: ' . $string . '<br />';
+		echo 'String serialized: ' . $string . '&lt;br /&gt;';
 	}
 
 	/**
@@ -36,7 +36,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 	 */
 	public function string_length( $string_length, $offset )
 	{
-		echo 'String length: ' . $string_length . '<br />';
+		echo 'String length: ' . $string_length . '&lt;br /&gt;';
 	}
 
 	/**
@@ -47,7 +47,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 	 */
 	public function string_value( $string_value, $offset )
 	{
-		echo 'String value: ' . $string_value . '<br />';
+		echo 'String value: ' . $string_value . '&lt;br /&gt;';
 	}
 
 	/**
@@ -58,7 +58,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 	 */
 	public function integer_value( $integer_value, $offset )
 	{
-		echo 'Integer value: ' . $integer_value . '<br />';
+		echo 'Integer value: ' . $integer_value . '&lt;br /&gt;';
 	}
 
 	/**
@@ -68,7 +68,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 	 * @param int    $offset Offset of the decimal value found.
 	 */
 	public function decimal_value( $decimal_value, $offset ) {
-		echo 'Decimal value: ' . $decimal_value . '<br />';
+		echo 'Decimal value: ' . $decimal_value . '&lt;br /&gt;';
 	}
 
 	/**
@@ -78,7 +78,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 	 * @param int    $offset Offset of the boolean value found.
 	 */
 	public function boolean_value( $boolean_value, $offset ) {
-		echo 'Boolean value: ' . $boolean_value . '<br />';
+		echo 'Boolean value: ' . $boolean_value . '&lt;br /&gt;';
 	}
 
 	/**
@@ -96,7 +96,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 	 * @param int    $offset Offset of the number of items found.
 	 */
 	public function array_items_num( $items_num, $offset ) {
-		echo 'Number of items of the array: ' . $items_num . '<br />';
+		echo 'Number of items of the array: ' . $items_num . '&lt;br /&gt;';
 	}
 
 	/**
@@ -109,7 +109,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 		if ( $parse_result ) {
 			echo 'Good job!' . '<br />';
 		} else {
-			echo 'There was an error' . '<br />';
+			echo 'There was an error' . '&lt;br /&gt;';
 		}
 	}
 
@@ -120,7 +120,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 	 */
 	public function set_error( $error )
 	{
-		echo $error . '<br />';
+		echo $error . '&lt;br /&gt;';
 	}
 }
 
@@ -140,7 +140,7 @@ $lexepa_srl->parse_srl();
 <p>The result of this example is as follows:</p>
 
 <pre>
-Serialized string: a:5:{s:4:"key1";s:22:"This is my first value";s:4:"key2";s:23:"This is my second value";s:4:"key3";i:20;s:4:"key4";b:1;s:4:"key5";N;}
+String serialized: a:5:{s:4:"key1";s:22:"This is my first value";s:4:"key2";s:23:"This is my second value";s:4:"key3";i:20;s:4:"key4";b:1;s:4:"key5";N;}
 Number of items of the array: 5
 String length: 4
 String value: key1
