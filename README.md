@@ -86,7 +86,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 	 *
 	 */
 	public function null_value() {
-		echo 'Null value found' . '<br />';
+		echo 'Null value found' . '&lt;br /&gt;';
 	}
 
 	/**
@@ -107,7 +107,7 @@ class Example_Srl extends Lexepa_Srl_Abstract
 	public function end_parsing( $parse_result )
 	{
 		if ( $parse_result ) {
-			echo 'Good job!' . '<br />';
+			echo 'Good job!' . '&lt;br /&gt;';
 		} else {
 			echo 'There was an error' . '&lt;br /&gt;';
 		}
